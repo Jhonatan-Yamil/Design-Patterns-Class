@@ -53,7 +53,7 @@ public class Sistema {
 			break;
 		
 		case 2:
-			if(usuario.getSaldo()> 0) {
+			if(usuario.getSaldo() >= 0) {
 				System.out.println("Ingrese el monto a depositar por favor");
 				int montoDep = sc.nextInt();
 				usuario.setSaldo(usuario.getSaldo() + montoDep);
@@ -66,8 +66,32 @@ public class Sistema {
 			break;
 		case 3:
 			if(usuario.getSaldo() > 0) {
-				System.out.println("Ingrese el monto a retirar por favor");
-				int retiro= sc.nextInt();
+				System.out.println("Escoja el monto a retirar por favor!");
+				System.out.println("1. 10 Bs");
+				System.out.println("2. 50 Bs");
+				System.out.println("3. 100 Bs");
+				System.out.println("4. 200 Bs");
+				System.out.println("5. Escribir monto");
+				int nroOpcionRetiro = sc.nextInt();
+				int retiro = 0;
+				switch (nroOpcionRetiro) {
+					case 1: 
+						retiro = 10;
+						break;
+					case 2: 
+						retiro = 50;
+						break;
+					case 3:
+						retiro = 100;
+						break;
+					case 4:
+						retiro = 200;
+						break;
+					case 5:
+						System.out.println("Ingrese el monto a retirar por favor");
+						retiro= sc.nextInt();
+						break;
+				}
 				if(retiro<=usuario.getSaldo()) {
 					usuario.setSaldo(usuario.getSaldo()-retiro);
 					System.out.println("Retiro realizado satisfactoriamente!");
@@ -85,5 +109,27 @@ public class Sistema {
 			System.out.println("Que tenga buen día!!!");
 			break;
 		}
+	}
+	public int opcionesDepRet() {
+		System.out.println("Escoja una de los opciones por favor");
+		System.out.println("1. 10");
+		System.out.println("2. 50");
+		System.out.println("3. 100");
+		System.out.println("4. 200");
+		System.out.println("5. Escribir monto");
+		int nroOpcionesDepRet = sc.nextInt();
+		switch(nroOpcionesDepRet) {
+			case 1:
+				return 10;
+			case 2: 
+				return 50;
+			case 3:
+				return 100;
+			case 4:
+				return 200;
+			case 5:
+				return 0;
+		}
+		return nroOpcionesDepRet;
 	}
 }
