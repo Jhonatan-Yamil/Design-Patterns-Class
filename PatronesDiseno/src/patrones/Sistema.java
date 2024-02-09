@@ -15,9 +15,14 @@ public class Sistema {
 	}
 	public void inicio() {
 		System.out.println("Ingrese su pin por favor");
+		if(sc.hasNextInt()) {
+			
 		int usuarioPin = sc.nextInt();
 		if(!conectado) {
 			probarPin(usuarioPin);			
+		}
+		}else {
+			System.out.println("Código no válido!");
 		}
 	}
 	
@@ -44,6 +49,9 @@ public class Sistema {
 		System.out.println("2. Depósito");
 		System.out.println("3. Retiros");
 		System.out.println("4. Salir");
+			
+		
+		if(sc.hasNextInt() ) {
 		int nroOpcion= sc.nextInt();
 		
 		switch(nroOpcion) {
@@ -72,6 +80,7 @@ public class Sistema {
 				System.out.println("3. 100 Bs");
 				System.out.println("4. 200 Bs");
 				System.out.println("5. Escribir monto");
+			
 				int nroOpcionRetiro = sc.nextInt();
 				int retiro = 0;
 				switch (nroOpcionRetiro) {
@@ -91,6 +100,8 @@ public class Sistema {
 						System.out.println("Ingrese el monto a retirar por favor");
 						retiro= sc.nextInt();
 						break;
+					default:
+						System.out.println("Número no válido");
 				}
 				if(retiro<=usuario.getSaldo()) {
 					usuario.setSaldo(usuario.getSaldo()-retiro);
@@ -108,9 +119,14 @@ public class Sistema {
 		case 4:
 			System.out.println("Que tenga buen día!!!");
 			break;
+		default: 
+			System.out.println("Número no válido");
+		}
+		}else {
+			System.out.println("El número ingresado no es válido");
 		}
 	}
-	public int opcionesDepRet() {
+	/*public int opcionesDepRet() {
 		System.out.println("Escoja una de los opciones por favor");
 		System.out.println("1. 10");
 		System.out.println("2. 50");
@@ -131,5 +147,5 @@ public class Sistema {
 				return 0;
 		}
 		return nroOpcionesDepRet;
-	}
+	}*/
 }
