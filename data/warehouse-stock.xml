@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+    <row>
+        <id>1</id>
+        <name>Rosa</name>
+        <stock>9</stock>
+    </row>
+    <row>
+        <id>8</id>
+        <name>tulipan</name>
+        <stock>3</stock>
+    </row>
+</root>
